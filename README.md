@@ -67,6 +67,7 @@ This allows your system to communicate with a website
 
 9. Frontend (HTML, CSS, JavaScript)
 This is what users see after scanning the QR code.
+
 HTML — Structure
 Purpose:
 Defines the layout of the webpage
