@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#status-bar {
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slot {
+    width: 90px;
+    height: 60px;
+    margin: 10px;
+    line-height: 60px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Empty slot */
+.empty {
+    background-color: #28a745;
+}
+
+/* Occupied slot */
+.occupied {
+    background-color: #dc3545;
+}
+
+/* Hover effect */
+.slot:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
