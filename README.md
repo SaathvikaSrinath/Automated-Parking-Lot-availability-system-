@@ -11,51 +11,51 @@ ________________________________________________________________________________
 1. Pre-defining the parking layout
 Before any detection happens, we manually mark all parking spaces using your second script.
 
-Each spot is stored as coordinates (pos_list)
-This acts like a map of the parking lot
-The system now knows exactly where to look in every frame
+Each spot is stored as coordinates (pos_list).
+This acts like a map of the parking lot.
+The system now knows exactly where to look in every frame.
 This is what makes the system structured and reliable — it doesn’t need to detect parking slots every time.
 
 2. Continuous monitoring using video
 Our main script reads frames from a video (or camera feed).
 
-Each frame = current state of the parking lot
-This makes the system automatic and near real-time
+Each frame = current state of the parking lot.
+This makes the system automatic and near real-time.
 Instead of checking manually, the system constantly watches the parking area.
 
 3. Converting the image into a simplified form
 The raw image is processed to make detection easier:
-Removes color → keeps only intensity
-Removes noise → smoothens the image
-Converts to binary → separates objects from background
-Expands shapes → makes cars more solid
+Removes color → keeps only intensity.
+Removes noise → smoothens the image.
+Converts to binary → separates objects from background.
+Expands shapes → makes cars more solid.
 The goal is to make cars stand out clearly from empty spaces.
 
-4. Checking each parking spot individually
+5. Checking each parking spot individually
 For every predefined parking slot:
 
-The system extracts that region
-It measures how much “object presence” exists using white pixels
-Essentially asking whether something is there inside this box
+The system extracts that region.
+It measures how much “object presence” exists using white pixels.
+Essentially asking whether something is there inside this box.
 
-5. Deciding: Occupied vs Empty
-More pixels → car present → Occupied
-Fewer pixels → no car → Empty
+5. Deciding: Occupied vs Empty:
+More pixels → car present → Occupied.
+Fewer pixels → no car → Empty.
 This is the core decision-making step.
 
-6. Aggregating results
+7. Aggregating results
 After checking all spots:
-Counts total free spaces
-Labels each spot (green/red in OpenCV window)
+Counts total free spaces.
+Labels each spot (green/red in OpenCV window).
 Converts detection into usable information.
 
-7. Continuous updating
+9. Continuous updating
 Since this runs frame-by-frame:
-Car enters → becomes occupied
-Car leaves → becomes empty
-This makes the system fully automated and dynamic
+Car enters → becomes occupied.
+Car leaves → becomes empty.
+This makes the system fully automated and dynamic.
 
-8. Backend Integration (Bridge to Web)
+11. Backend Integration (Bridge to Web)
 Now we connect your OpenCV system to users.
 What happens:
 A backend (Flask) runs your detection code
@@ -65,7 +65,7 @@ Example:
   {"slot": 1, "status": "Occupied"}
 This allows your system to communicate with a website
 
-9. Frontend (HTML, CSS, JavaScript)
+13. Frontend (HTML, CSS, JavaScript)
 This is what users see after scanning the QR code.
 
 HTML — Structure
