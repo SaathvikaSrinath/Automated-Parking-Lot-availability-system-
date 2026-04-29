@@ -8,103 +8,98 @@ We are trying to combine three pieces:
 3. A frontend (HTML/CSS/JS) accessible via QR
 ________________________________________________________________________________________________________________________
 
-1. Pre-defining the parking layout
+1. Pre-defining the parking layout</br>
 Before any detection happens, we manually mark all parking spaces using your second script.
 
-markdown
-Main Item Each spot is stored as coordinates (pos_list).
-Main Item This acts like a map of the parking lot.
-Main Item The system now knows exactly where to look in every frame.
-Main Item This is what makes the system structured and reliable — it doesn’t need to detect parking slots every time.
+- Each spot is stored as coordinates (pos_list).
+- This acts like a map of the parking lot.
+- The system now knows exactly where to look in every frame.
+- This is what makes the system structured and reliable — it doesn’t need to detect parking slots every time.
 
-2. Continuous monitoring using video
+2. Continuous monitoring using video </br>
 Our main script reads frames from a video (or camera feed).
 
-Each frame = current state of the parking lot.
-This makes the system automatic and near real-time.
-Instead of checking manually, the system constantly watches the parking area.
+- Each frame = current state of the parking lot.
+- This makes the system automatic and near real-time.
+- Instead of checking manually, the system constantly watches the parking area.
 
-3. Converting the image into a simplified form
+3. Converting the image into a simplified form</br>
 The raw image is processed to make detection easier:
-Removes color → keeps only intensity.
-Removes noise → smoothens the image.
-Converts to binary → separates objects from background.
-Expands shapes → makes cars more solid.
-The goal is to make cars stand out clearly from empty spaces.
+- Removes color → keeps only intensity.
+- Removes noise → smoothens the image.
+- Converts to binary → separates objects from background.
+- Expands shapes → makes cars more solid.
+- The goal is to make cars stand out clearly from empty spaces.
 
-5. Checking each parking spot individually
+4. Checking each parking spot individually</br>
 For every predefined parking slot:
 
-The system extracts that region.
-It measures how much “object presence” exists using white pixels.
-Essentially asking whether something is there inside this box.
+- The system extracts that region.
+- It measures how much “object presence” exists using white pixels.
+- Essentially asking whether something is there inside this box.
 
 5. Deciding: Occupied vs Empty:
-More pixels → car present → Occupied.
-Fewer pixels → no car → Empty.
-This is the core decision-making step.
+- More pixels → car present → Occupied.
+- Fewer pixels → no car → Empty.
+- This is the core decision-making step.
 
-7. Aggregating results
+6. Aggregating results </br>
 After checking all spots:
-Counts total free spaces.
-Labels each spot (green/red in OpenCV window).
-Converts detection into usable information.
+- Counts total free spaces.
+- Labels each spot (green/red in OpenCV window).
+- Converts detection into usable information.
 
-9. Continuous updating
+7. Continuous updating</br>
 Since this runs frame-by-frame:
-Car enters → becomes occupied.
-Car leaves → becomes empty.
-This makes the system fully automated and dynamic.
+- Car enters → becomes occupied.
+- Car leaves → becomes empty.
+- This makes the system fully automated and dynamic.
 
-11. Backend Integration (Bridge to Web)
-Now we connect your OpenCV system to users.
+8. Backend Integration (Bridge to Web)</br>
+Now we connect your OpenCV system to users.</br>
 What happens:
-A backend (Flask) runs your detection code
-It converts results into JSON
-Example:
-  {"slot": 0, "status": "Empty"},
-  {"slot": 1, "status": "Occupied"}
-This allows your system to communicate with a website
+- A backend (Flask) runs your detection code
+- It converts results into JSON
+- Example:
+ &nbsp {"slot": 0, "status": "Empty"},
+ &nbsp {"slot": 1, "status": "Occupied"}
+- This allows your system to communicate with a website
 
-13. Frontend (HTML, CSS, JavaScript)
-This is what users see after scanning the QR code.
+9. Frontend (HTML, CSS, JavaScript)</br>
+This is what users see after scanning the QR code.</br>
 
 HTML — Structure
-Purpose:
-Defines the layout of the webpage
-Role:
-Displays title
-Creates container for parking slots
-Adds refresh button
-Acts as the skeleton of the interface
+- Purpose: Defines the layout of the webpage
+- Role: 
+  - Displays title
+  - Creates container for parking slots
+  - Adds refresh button
+- Acts as the skeleton of the interface
 
 CSS — Visualization
-Purpose:
-Makes the system user-friendly and intuitive
-Role:
-Green → Empty
-Red → Occupied
-Organizes layout neatly
-Converts raw data into visual understanding
+- Purpose: Makes the system user-friendly and intuitive
+- Role:
+  - Green → Empty
+  - Red → Occupied
+  - Organizes layout neatly
+- Converts raw data into visual understanding
 
 JavaScript — Live Data Handling
-Purpose:
-Connects frontend to backend
-Role:
-Calls backend API
-Receives parking data
-Updates UI dynamically
-Makes the system interactive and real-time
+- Purpose: Connects frontend to backend
+- Role:
+  - Calls backend API
+  - Receives parking data
+  - Updates UI dynamically
+- Makes the system interactive and real-time
 
 10. QR Code Integration
-Purpose:
-Provide instant access to users
-How it works:
-You deploy your website online
-Generate a QR code for the URL using tools like
-QR Code Generator
-Users scan QR → webpage opens
-No app required — simple and accessible
+- Purpose: Provide instant access to users
+- How it works:
+  - You deploy your website online
+  - Generate a QR code for the URL using tools like
+  - QR Code Generator
+  - Users scan QR → webpage opens
+- No app required — simple and accessible
 _______________________________________________________________________________________________________________
 
 COMPLETE USER FLOW
