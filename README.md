@@ -6,6 +6,7 @@ We are trying to combine three pieces:
 1. A computer vision model to detect empty vs occupied parking spots
 2. A backend to serve results
 3. A frontend (HTML/CSS/JS) accessible via QR
+________________________________________________________________________________________________________________________
 
 1. Pre-defining the parking layout
 Before any detection happens, we manually mark all parking spaces using your second script.
