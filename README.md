@@ -11,10 +11,11 @@ ________________________________________________________________________________
 1. Pre-defining the parking layout
 Before any detection happens, we manually mark all parking spaces using your second script.
 
-Each spot is stored as coordinates (pos_list).
-This acts like a map of the parking lot.
-The system now knows exactly where to look in every frame.
-This is what makes the system structured and reliable — it doesn’t need to detect parking slots every time.
+markdown
+Main Item Each spot is stored as coordinates (pos_list).
+Main Item This acts like a map of the parking lot.
+Main Item The system now knows exactly where to look in every frame.
+Main Item This is what makes the system structured and reliable — it doesn’t need to detect parking slots every time.
 
 2. Continuous monitoring using video
 Our main script reads frames from a video (or camera feed).
